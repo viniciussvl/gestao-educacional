@@ -23,7 +23,10 @@ Route::prefix('admin')->group(function(){
        'as' => 'admin.',
        'middleware' => 'auth'
     ], function(){
-        Route::resource('users', 'UsersController');
+        Route::resource('Users', 'UsersController');
+        Route::name('dashboard')->get('/dashboard', function(){
+           return 'Estou no dashboard';
+        });
     });
 });
 

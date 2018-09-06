@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'Users',
     ],
 
     /*
@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'Users',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'Users',
         ],
     ],
 
@@ -65,7 +65,7 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'Users' => [
             'driver' => 'eloquent',
             'model' => SON\Models\User::class,
         ],
@@ -92,8 +92,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'Users' => [
+            'provider' => 'Users',
             'table' => 'password_resets',
             'expire' => 60,
         ],

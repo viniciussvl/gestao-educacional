@@ -10,7 +10,7 @@
                     $linkEdit = route('admin.users.edit', ['user' => $user->id]);
                     $linkDelete = route('admin.users.destroy', ['user' => $user->id]);
                 @endphp
-                {!! Button::primary('Editar')->asLinkTo($linkEdit) !!}
+                {!! Button::primary(Icon::create('pencil'))->asLinkTo($linkEdit) !!}
                 {!!
                 Button::danger('Excluir')->asLinkTo($linkDelete)
                 ->addAttributes([

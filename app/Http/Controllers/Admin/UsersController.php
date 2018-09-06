@@ -16,9 +16,10 @@ class UsersController extends Controller
      */
     public function index()
     {
+        vdpd('eae');
         $users = User::paginate();
         return view('admin.users.index', [
-            'users' => $users
+            'Users' => $users
         ]);
     }
 
@@ -54,8 +55,8 @@ class UsersController extends Controller
         }
 
         $data = $form->getFieldValues();
-        $data['password'] = str_random(6);
-        User::create($data);
+        User::createFully($data);
+        $request->session()->flash('message', 'Usuário cadastrado com sucesso!');
 
         return redirect()->route('admin.users.index');
     }
@@ -108,7 +109,7 @@ class UsersController extends Controller
 
         $data = $form->getFieldValues();
         $user->update($data);
-
+        $request->session()->flash('message', 'Suas alterações foram salvas com sucesso!');
         return redirect()->route('admin.users.index');
     }
 
@@ -121,6 +122,7 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        session()->flash('message', 'O usuário foi excluido com sucesso!');
         return redirect()->route('admin.users.index');
     }
 }
